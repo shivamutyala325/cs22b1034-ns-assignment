@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DES Encryption App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>DES Encryption/Decryption</h1>
+        <form method="POST" action="/process">
+            <textarea name="message" placeholder="Enter your message here" required></textarea><br>
+            <input type="text" name="key" placeholder="Enter 8-character key" maxlength="8" required><br>
+            <select name="operation" required>
+                <option value="encrypt">Encrypt</option>
+                <option value="decrypt">Decrypt</option>
+            </select><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Result:</h2>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
